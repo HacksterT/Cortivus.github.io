@@ -1,0 +1,43 @@
+# Version archives and backups
+archive/
+backups/
+versions/
+*.zip
+*.rar
+*.tar.gz
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Local development files
+node_modules/
+.env
+.env.local
+
+# Image working files (keep final versions only)
+*.psd
+*.ai
+*.sketch
+
+# Documentation drafts
+draft/
+notes/
+todo.txt
