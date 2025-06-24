@@ -96,4 +96,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 
-For questions about this website, please contact [info@cortivus.com](mailto:info@cortivus.com).
+For questions about this website, please contact [servingyou@cortivus.com](mailto:servingyou@cortivus.com).
