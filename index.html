@@ -334,6 +334,9 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .service-card:hover {
@@ -576,9 +579,11 @@
                         <div class="service-icon">📖</div>
                         <img src="images/logo.png" alt="Cortivus Logo" class="service-logo">
                     </div>
-                    <h3>Faith-Based AI Assistant</h3>
-                    <p>Custom RAG system trained on scripture and sermon notes to help pastors prep faster and deliver deeper insights.</p>
-                    <p><strong>Use Case:</strong> Fast, faithful content generation for sermon planning.</p>
+                    <div class="card-content">
+                        <h3>Faith-Based AI Assistant</h3>
+                        <p>Custom RAG system trained on scripture and sermon notes to help pastors prep faster and deliver deeper insights.</p>
+                        <p><strong>Use Case:</strong> Fast, faithful content generation for sermon planning.</p>
+                    </div>
                     <a href="#contact" class="btn secondary">Request Similar Tool</a>
                 </div>
     
@@ -587,9 +592,11 @@
                         <div class="service-icon">🍸</div>
                         <img src="images/logo.png" alt="Cortivus Logo" class="service-logo">
                     </div>
-                    <h3>AI Bar Chooser App</h3>
-                    <p>Interactive app that recommends cocktails based on mood, taste preferences, and available ingredients using AI logic.</p>
-                    <p><strong>Use Case:</strong> Personalized drink selection for events or casual use.</p>
+                    <div class="card-content">
+                        <h3>AI Bar Chooser App</h3>
+                        <p>Interactive app that recommends cocktails based on mood, taste preferences, and available ingredients using AI logic.</p>
+                        <p><strong>Use Case:</strong> Personalized drink selection for events or casual use.</p>
+                    </div>
                     <a href="#contact" class="btn secondary">Request Similar Tool</a>
                 </div>
     
@@ -598,12 +605,13 @@
                         <div class="service-icon">🎵</div>
                         <img src="images/logo.png" alt="Cortivus Logo" class="service-logo">
                     </div>
-                    <h3>AI Music Generator + Auto-Publisher</h3>
-                    <p>End-to-end pipeline from lyrics to vocals, thumbnail, metadata, and YouTube upload.</p>
-                    <p><strong>Use Case:</strong> Created 20+ songs with zero manual post-production.</p>
-                    <a href="#contact" class="btn secondary">Request Similar Tool</a>
+                    <div class="card-content">
+                        <h3>Music Generator</h3>
+                        <p>End-to-end pipeline from lyrics to vocals, thumbnail, metadata, and YouTube upload.</p>
+                        <p><strong>Use Case:</strong> Created 20+ songs with zero manual post-production.</p>
+                    </div>
                 </div>
-    
+                <a href="#contact" class="btn secondary">Request Similar Tool</a>
             </div>
         </div>
     </section>
