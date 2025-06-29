@@ -291,8 +291,8 @@
         showTypingIndicator();
         state.isLoading = true;
 
-        // Route message based on active demo
-        if (state.activeDemo) {
+       // Route message based on active demo
+        if (state.activeDemo && state.activeDemo !== 'company') {
             handleDemoResponse(messageText, state.activeDemo);
         } else {
             // Company Q&A mode
