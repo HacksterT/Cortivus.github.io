@@ -10,7 +10,7 @@ def chat_endpoint(req: func.HttpRequest) -> func.HttpResponse:
     try:
         # For now, just return a simple response
         return func.HttpResponse(
-            '{"response": "Hello from Cortivus chatbot API!", "sources": []}',
+            '{"response": "Hello from Cortivus chatbot API! -v2", "sources": []}',
             status_code=200,
             headers={"Content-Type": "application/json"}
         )
