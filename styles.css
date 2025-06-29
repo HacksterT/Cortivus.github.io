@@ -115,7 +115,7 @@ nav a:hover::after {
 
 /* Hero Section */
 .hero {
-    padding-top: 7rem; /* adjust as needed to clear the header */
+    padding-top: 4rem; /* adjust as needed to clear the header */
     min-height: 100vh;
     display: flex;
     align-items: center;

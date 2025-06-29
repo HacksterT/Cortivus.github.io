@@ -32,6 +32,20 @@ node_modules/
 .env
 .env.local
 
+# Azure Functions
+local.settings.json
+.python_packages/
+__pycache__/
+*.py[cod]
+
+# Python virtual environment
+venv/
+env/
+.venv/
+.env/
+azure_venv/
+pyvenv.cfg
+
 # Image working files (keep final versions only)
 *.psd
 *.ai

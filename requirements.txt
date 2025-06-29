@@ -1,0 +1,27 @@
+# Azure Functions requirements
+azure-functions>=1.12.0
+# azure-identity>=1.12.0
+# azure-keyvault-secrets>=4.6.0
+
+# API and HTTP handling
+requests>=2.28.2
+fastapi>=0.95.0
+python-multipart>=0.0.6
+
+# RAG components
+# langchain>=0.0.200
+# langchain-community>=0.0.10
+# langchain-text-splitters>=0.0.1
+
+# Vector database and embeddings
+# faiss-cpu>=1.7.4
+# sentence-transformers>=2.2.2
+
+# Utilities
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+# tenacity>=8.2.2
+
+# Logging and monitoring
+# opencensus-ext-azure>=1.1.9
+# applicationinsights==0.11.10
