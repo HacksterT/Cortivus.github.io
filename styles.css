@@ -225,7 +225,6 @@ nav a:hover::after {
     margin-left: auto;
     margin-right: auto;
     max-width: 1200px;
-    min-width: 1000px;     /* Increased minimum width to prevent excessive shrinking */
     width: 100%;
     padding: 0 1.5rem;
     color: var(--text-primary);
@@ -237,7 +236,6 @@ nav a:hover::after {
     gap: 2rem;
     align-items: stretch;
     width: 100%;
-    min-width: 980px;     /* Minimum width to ensure child elements have enough space */
 }
 
 .workflow-intro {
@@ -263,7 +261,6 @@ nav a:hover::after {
     justify-content: center;
     text-align: left;
     width: 100%;
-    min-width: 600px;      /* Minimum width to prevent text wrapping */
     max-width: 100%;
     overflow: hidden;         /* Prevents content from overflowing */
 }
@@ -334,11 +331,20 @@ nav a:hover::after {
     .workflow-grid {
         flex-direction: column;
         flex-wrap: wrap;      /* allow wrapping on smaller screens */
+        min-width: unset;    /* Remove minimum width constraint */
+        width: 100%;
     }
 
     .workflow-intro {
         font-size: 1.2rem;
         margin-bottom: 1rem;
+        justify-content: center; /* Center text on mobile */
+        text-align: center;
+        padding-right: 0;
+    }
+    
+    .workflow-list {
+        min-width: unset; /* Remove minimum width constraint */
     }
 }
 
@@ -608,14 +614,93 @@ footer {
     text-align: center;
 }
 
+/* Mobile Navigation */
+.mobile-nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
-    .hero h1 { font-size: 2.5rem; }
-    .hero .subtitle { font-size: 1.2rem; }
+    /* Hero section */
+    .hero h1 { 
+        font-size: 2.5rem; 
+        margin-top: 2rem;
+    }
+    .hero .subtitle { 
+        font-size: 1.2rem; 
+        margin-bottom: 1.5rem;
+    }
+    .hero-logo img {
+        height: 80px; /* Smaller logo on mobile */
+    }
+    
+    /* Button layout */
+    .hero .btn {
+        display: block;
+        width: 100%;
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+    .btn.secondary { 
+        margin-left: auto; 
+        margin-right: auto;
+        margin-top: 1rem; 
+    }
+    .hero .btn + .btn {
+        margin-top: 1rem; /* Reduced spacing between buttons */
+    }
+    
+    /* Navigation */
+    .header-content {
+        position: relative;
+    }
+    nav ul { 
+        display: none; 
+    }
+    .mobile-nav-toggle {
+        display: block;
+        position: absolute;
+        right: 1rem;
+        top: 1.2rem;
+    }
+    nav.mobile-active ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(0, 245, 255, 0.2);
+        z-index: 1000;
+    }
+    nav.mobile-active ul li {
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+    
+    /* Other responsive adjustments */
     .about-grid, .contact-grid { grid-template-columns: 1fr; }
     .services-grid { grid-template-columns: 1fr; }
-    nav ul { display: none; }
-    .btn.secondary { margin-left: 0; margin-top: 1rem; }
+    
+    /* Adjust padding for mobile */
+    .hero {
+        padding-top: 5rem;
+    }
+    .container {
+        padding: 0 15px;
+    }
 }
 
 /* Smooth scrolling */
