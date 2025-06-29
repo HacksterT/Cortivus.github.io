@@ -1,0 +1,85 @@
+{
+  "policies": [
+    {
+      "id": "privacy-policy",
+      "title": "Privacy Policy",
+      "lastUpdated": "2025-05-15",
+      "sections": [
+        {
+          "heading": "Information Collection",
+          "content": "Cortivus collects personal information when you register for our services, including your name, email address, and organization details. We also collect usage data such as IP addresses, browser type, and pages visited to improve our services and user experience."
+        },
+        {
+          "heading": "Data Usage",
+          "content": "We use your information to provide and improve our services, communicate with you about updates or changes, and personalize your experience. We do not sell your personal information to third parties."
+        },
+        {
+          "heading": "Data Protection",
+          "content": "Cortivus implements industry-standard security measures to protect your data from unauthorized access, alteration, or disclosure. All data is encrypted both in transit and at rest using modern encryption protocols."
+        },
+        {
+          "heading": "Cookies Policy",
+          "content": "Our website uses cookies to enhance your browsing experience. These cookies help us analyze site traffic and customize content to your preferences. You can control cookie settings through your browser preferences."
+        },
+        {
+          "heading": "Third-Party Services",
+          "content": "We may use third-party services for analytics, payment processing, and customer support. These services have their own privacy policies, and we encourage you to review them."
+        }
+      ]
+    },
+    {
+      "id": "terms-of-service",
+      "title": "Terms of Service",
+      "lastUpdated": "2025-04-20",
+      "sections": [
+        {
+          "heading": "Account Registration",
+          "content": "To use certain features of our services, you must register for an account. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account."
+        },
+        {
+          "heading": "Acceptable Use",
+          "content": "You agree not to use our services for any unlawful purpose or in any way that could damage, disable, or impair our services. You may not attempt to gain unauthorized access to any part of our services or systems."
+        },
+        {
+          "heading": "Intellectual Property",
+          "content": "All content on our website, including text, graphics, logos, and software, is the property of Cortivus and is protected by intellectual property laws. You may not reproduce, distribute, or create derivative works without our permission."
+        },
+        {
+          "heading": "Service Modifications",
+          "content": "We reserve the right to modify, suspend, or discontinue any part of our services at any time without notice. We will not be liable to you or any third party for any modification, suspension, or discontinuation."
+        },
+        {
+          "heading": "Termination",
+          "content": "We may terminate or suspend your account and access to our services at our discretion, without notice, for conduct that we believe violates these Terms or is harmful to other users, us, or third parties."
+        }
+      ]
+    },
+    {
+      "id": "data-retention",
+      "title": "Data Retention Policy",
+      "lastUpdated": "2025-06-01",
+      "sections": [
+        {
+          "heading": "Retention Periods",
+          "content": "Cortivus retains personal data for as long as necessary to provide our services and fulfill the purposes outlined in our Privacy Policy. Account information is retained while your account is active and for a period afterward for legal and business purposes."
+        },
+        {
+          "heading": "User Content",
+          "content": "Content you create and share through our services will be retained until you delete it or close your account. After account closure, we may retain certain data for compliance with legal obligations or legitimate business purposes."
+        },
+        {
+          "heading": "Backup Data",
+          "content": "For disaster recovery and business continuity purposes, we maintain backups of our systems, which may include your data. These backups are retained according to our backup rotation schedule and are securely deleted when no longer needed."
+        },
+        {
+          "heading": "Data Deletion",
+          "content": "When you request deletion of your data, we will delete or anonymize it within 30 days, except where we are legally required to retain it. Note that deleted data may persist in our backup systems for a limited time until those backups are cycled."
+        },
+        {
+          "heading": "Compliance Records",
+          "content": "Certain records may be retained for longer periods to comply with legal, tax, accounting, or other regulatory requirements. These records are stored securely with access limited to authorized personnel."
+        }
+      ]
+    }
+  ]
+}

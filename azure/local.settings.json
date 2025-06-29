@@ -1,0 +1,15 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "MINIMAX_API_KEY": "your-api-key-here",
+    "AZURE_KEYVAULT_URL": "https://cortivus-keyvault.vault.azure.net/",
+    "APPINSIGHTS_INSTRUMENTATIONKEY": "your-app-insights-key-here",
+    "CORS_ALLOWED_ORIGINS": "http://localhost:3000,https://cortivus.github.io"
+  },
+  "Host": {
+    "CORS": "http://localhost:3000,https://cortivus.github.io",
+    "CORSCredentials": true
+  }
+}

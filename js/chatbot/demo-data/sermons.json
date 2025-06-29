@@ -1,0 +1,167 @@
+{
+  "scriptures": [
+    {
+      "id": "john-3-16",
+      "reference": "John 3:16",
+      "text": "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.",
+      "themes": ["love", "salvation", "eternal life", "belief", "sacrifice"],
+      "commentary": "This verse encapsulates the gospel message, highlighting God's love as the motivation for sending Jesus Christ. It emphasizes the universal scope of God's love ('the world') and the personal response required ('whoever believes')."
+    },
+    {
+      "id": "romans-8-28",
+      "reference": "Romans 8:28",
+      "text": "And we know that in all things God works for the good of those who love him, who have been called according to his purpose.",
+      "themes": ["providence", "purpose", "suffering", "hope", "sovereignty"],
+      "commentary": "This verse offers comfort in difficult circumstances, assuring believers that God is actively working even in challenging situations. It doesn't promise that all things are good, but that God works through all circumstances for ultimate good."
+    },
+    {
+      "id": "psalm-23-1",
+      "reference": "Psalm 23:1-4",
+      "text": "The Lord is my shepherd, I lack nothing. He makes me lie down in green pastures, he leads me beside quiet waters, he refreshes my soul. He guides me along the right paths for his name's sake. Even though I walk through the darkest valley, I will fear no evil, for you are with me; your rod and your staff, they comfort me.",
+      "themes": ["guidance", "provision", "comfort", "protection", "presence"],
+      "commentary": "This psalm uses the metaphor of God as a shepherd to illustrate his care, guidance, and protection. It portrays both the peaceful provisions of God and his presence in difficult times."
+    },
+    {
+      "id": "matthew-5-3-10",
+      "reference": "Matthew 5:3-10",
+      "text": "Blessed are the poor in spirit, for theirs is the kingdom of heaven. Blessed are those who mourn, for they will be comforted. Blessed are the meek, for they will inherit the earth. Blessed are those who hunger and thirst for righteousness, for they will be filled. Blessed are the merciful, for they will be shown mercy. Blessed are the pure in heart, for they will see God. Blessed are the peacemakers, for they will be called children of God. Blessed are those who are persecuted because of righteousness, for theirs is the kingdom of heaven.",
+      "themes": ["beatitudes", "kingdom values", "character", "blessing", "discipleship"],
+      "commentary": "The Beatitudes present a counter-cultural value system that defines the character of those in God's kingdom. Each beatitude contains both a present reality ('blessed are') and a future promise, illustrating the 'already but not yet' nature of God's kingdom."
+    },
+    {
+      "id": "ephesians-2-8-10",
+      "reference": "Ephesians 2:8-10",
+      "text": "For it is by grace you have been saved, through faith—and this is not from yourselves, it is the gift of God—not by works, so that no one can boast. For we are God's handiwork, created in Christ Jesus to do good works, which God prepared in advance for us to do.",
+      "themes": ["grace", "faith", "salvation", "works", "purpose"],
+      "commentary": "These verses articulate the relationship between grace, faith, and works in the Christian life. Salvation is presented as entirely God's gift, received through faith, yet resulting in a life of good works that God has prepared."
+    }
+  ],
+  "sermonOutlines": [
+    {
+      "id": "gods-love",
+      "title": "Understanding God's Love",
+      "mainScripture": "john-3-16",
+      "supportingScriptures": ["1-john-4-9-10", "romans-5-8"],
+      "outline": [
+        {
+          "point": "The Nature of God's Love",
+          "subpoints": [
+            "God's love is sacrificial",
+            "God's love is unconditional",
+            "God's love is universal"
+          ]
+        },
+        {
+          "point": "The Expression of God's Love",
+          "subpoints": [
+            "Demonstrated through creation",
+            "Demonstrated through provision",
+            "Demonstrated supremely through Christ"
+          ]
+        },
+        {
+          "point": "Our Response to God's Love",
+          "subpoints": [
+            "Receiving God's love through faith",
+            "Reflecting God's love to others",
+            "Resting in God's love during trials"
+          ]
+        }
+      ],
+      "conclusion": "God's love is not just a theological concept but a transformative reality that should shape our identity, relationships, and purpose."
+    },
+    {
+      "id": "spiritual-growth",
+      "title": "Stages of Spiritual Growth",
+      "mainScripture": "2-peter-1-5-8",
+      "supportingScriptures": ["hebrews-5-12-14", "1-corinthians-3-1-3"],
+      "outline": [
+        {
+          "point": "The Foundation: Faith in Christ",
+          "subpoints": [
+            "Beginning with genuine conversion",
+            "Understanding basic doctrines",
+            "Establishing spiritual disciplines"
+          ]
+        },
+        {
+          "point": "The Process: Growing in Christlikeness",
+          "subpoints": [
+            "Developing spiritual virtues",
+            "Overcoming obstacles and temptations",
+            "Learning from trials and suffering"
+          ]
+        },
+        {
+          "point": "The Goal: Spiritual Maturity",
+          "subpoints": [
+            "Bearing fruit that lasts",
+            "Discerning God's will",
+            "Mentoring others in their faith"
+          ]
+        }
+      ],
+      "conclusion": "Spiritual growth is an intentional, lifelong process that requires both God's grace and our active participation."
+    },
+    {
+      "id": "finding-peace",
+      "title": "Finding Peace in a Troubled World",
+      "mainScripture": "john-14-27",
+      "supportingScriptures": ["philippians-4-6-7", "psalm-23-1"],
+      "outline": [
+        {
+          "point": "The Problem of Anxiety",
+          "subpoints": [
+            "Cultural sources of anxiety",
+            "Personal sources of anxiety",
+            "The spiritual impact of anxiety"
+          ]
+        },
+        {
+          "point": "The Promise of Peace",
+          "subpoints": [
+            "Peace with God through Christ",
+            "The peace of God that guards our hearts",
+            "Peace that transcends circumstances"
+          ]
+        },
+        {
+          "point": "The Practice of Peace",
+          "subpoints": [
+            "Through prayer and thanksgiving",
+            "Through meditation on Scripture",
+            "Through community and support"
+          ]
+        }
+      ],
+      "conclusion": "God's peace is not the absence of trouble but the presence of Christ in the midst of our troubles."
+    }
+  ],
+  "themes": [
+    {
+      "name": "love",
+      "relatedScriptures": ["john-3-16", "1-corinthians-13-4-7", "1-john-4-7-8"],
+      "description": "God's love for humanity and our love for God and others is a central theme throughout Scripture."
+    },
+    {
+      "name": "faith",
+      "relatedScriptures": ["hebrews-11-1", "ephesians-2-8-10", "romans-10-17"],
+      "description": "Faith is trust in God and his promises, often despite difficult circumstances or limited understanding."
+    },
+    {
+      "name": "hope",
+      "relatedScriptures": ["romans-8-24-25", "hebrews-6-19-20", "1-peter-1-3-5"],
+      "description": "Christian hope is a confident expectation in God's promises, particularly regarding Christ's return and eternal life."
+    },
+    {
+      "name": "grace",
+      "relatedScriptures": ["ephesians-2-8-10", "romans-3-23-24", "titus-2-11-14"],
+      "description": "God's unmerited favor toward sinners, demonstrated supremely in salvation through Christ."
+    },
+    {
+      "name": "discipleship",
+      "relatedScriptures": ["matthew-28-19-20", "luke-9-23-24", "john-8-31-32"],
+      "description": "Following Jesus as Lord, learning from him, and becoming more like him in character and mission."
+    }
+  ]
+}
