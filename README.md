@@ -191,6 +191,51 @@ GitHub Pages Site (Static Frontend)
 4. Testing and optimization - 2 days
 5. Production deployment - 1 day
 
+### Project Structure
+
+```plaintext
+cortivus_website/
+├── index.html                  # Main website page
+├── portfolio.html              # Portfolio page
+├── styles.css                  # Main stylesheet
+├── README.md                   # Project documentation
+├── bot_plan.md                 # Chatbot implementation plan
+│
+├── assets/                     # All static assets
+│   ├── images/                 # Website images
+│   └── fonts/                  # Custom fonts (if any)
+│
+├── js/                         # JavaScript files
+│   ├── main.js                 # Main website functionality
+│   └── chatbot/                # Chatbot-specific code
+│       ├── chat.js             # Core chatbot functionality
+│       ├── ui.js               # Chat UI components
+│       └── demo-data/          # Demo scenario data
+│           ├── policies.json   # Sample policy documents
+│           └── sermons.json    # Scripture and sermon data
+│
+└── azure/                      # Azure Function code (separate deployment)
+    ├── ChatFunction/           # Main function app
+    │   ├── __init__.py         # Function entry point
+    │   ├── function.json       # Function configuration
+    │   └── requirements.txt    # Python dependencies
+    │
+    ├── shared/                 # Shared code between functions
+    │   ├── rag_utils.py        # RAG integration utilities
+    │   └── minimax_client.py   # MiniMax API client
+    │
+    └── local.settings.json     # Local settings (gitignored)
+```
+
+This structure provides:
+
+- **Clean separation** between website and chatbot code
+- **Minimal impact** on existing site files
+- **Efficient organization** with modular components
+- **Easy maintenance** with clear file organization
+- **GitHub Pages compatibility** with static frontend assets
+- **Separate deployment** for Azure Functions backend
+
 ## Recent Updates
 
 - Extracted inline CSS to external stylesheet

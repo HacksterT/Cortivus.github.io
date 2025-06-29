@@ -209,7 +209,6 @@ nav a:hover::after {
     background: transparent;
     color: var(--primary-color);
     border: 2px solid var(--primary-color);
-    margin-left: 9rem;
 }
 
 .btn.secondary:hover {
