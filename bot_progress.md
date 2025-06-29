@@ -2,6 +2,15 @@
 
 ## Completed Tasks
 
+### UI/UX Refactor & Feature Consolidation (June 29, 2025)
+
+- ✅ **Resolved Critical Conflicts:** Addressed core stability issues by refactoring `ui.js` into a pure view layer and `chat.js` into a dedicated controller, eliminating all event listener conflicts and race conditions.
+- ✅ **Centralized Logic:** All chatbot state, event handling, and message logic are now managed cleanly and reliably within `chat.js`.
+- ✅ **Unified User Actions:** Replaced the header dropdown with a clear, interactive set of quick-reply buttons on chat open ("Policy Demo," "Sermon Demo," "Company Info," and "Contact Us").
+- ✅ **Enhanced User Guidance:** Implemented a new welcome message and placeholder responses for all quick-reply actions to better guide the user.
+- ✅ **Branding Update:** Updated the chatbot title to "The Cortivus Brain" and aligned the welcome message for consistent branding.
+- ✅ **Removed Dead Code:** Deleted the `debug.js` script and all related logic for a cleaner, more efficient codebase.
+
 ### Project Setup and Planning
 
 - ✅ Created detailed implementation plan in `bot_plan.md`
@@ -12,54 +21,22 @@
 ### Frontend Development
 
 - ✅ Created core chat module (`js/chatbot/chat.js`)
-  - Implemented message handling and formatting
-  - Added local storage for conversation history
-  - Created demo mode functionality
-  - Added typing indicators and animations
-  
 - ✅ Built UI components (`js/chatbot/ui.js`)
-  - Designed floating chat button and expandable window
-  - Styled to match Cortivus design language
-  - Made fully responsive for mobile devices
-  - Added mode selector for policy/sermon options
-
 - ✅ Created demo data
-  - Added sample policy documents in JSON format
-  - Added scripture references and sermon outlines
+- ✅ Integrated chatbot script into main website pages
+- ✅ Tested UI with demo mode
 
 ### Backend Development
 
 - ✅ Set up Azure Function structure
-  - Created HTTP-triggered function with proper configuration
-  - Added CORS settings for GitHub Pages integration
-  
 - ✅ Implemented Python backend components
-  - Created MiniMax API client with secure key handling
-  - Built RAG utilities for document retrieval and processing
-  - Added caching for performance optimization
-  
 - ✅ Added configuration files
-  - Created requirements.txt with necessary dependencies
-  - Added local.settings.json template for development
-
-## In Progress
-
-### Frontend Integration
-
-- ⏳ Add chatbot script to main website pages
-- ⏳ Test UI with demo mode
-
-### Backend Deployment
-
-- ⏳ Deploy Azure Function to production
-- ⏳ Configure API keys in Azure Key Vault
-- ⏳ Set up monitoring with Application Insights
 
 ## Next Steps
 
 ### Testing and Optimization
 
-- 🔲 Test end-to-end functionality
+- 🔲 Test end-to-end functionality with a live backend
 - 🔲 Optimize token usage and response times
 - 🔲 Verify mobile responsiveness
 - 🔲 Test error handling scenarios
@@ -74,30 +51,30 @@
 
 ### Frontend
 
-- The chatbot UI is implemented as a floating button that expands into a chat window
-- All styling is contained within the UI module to avoid conflicts with existing CSS
-- Demo mode allows testing without backend connectivity
+- The chatbot UI is implemented as a floating button that expands into a chat window.
+- All styling is contained within the UI module to avoid conflicts with existing CSS.
+- Demo mode allows testing without backend connectivity.
 
 ### Backend
 
-- Azure Function uses Python with FastAPI structure
-- MiniMax M1 API integration with secure key handling
-- RAG system integration with caching for performance
+- Azure Function uses Python with FastAPI structure.
+- MiniMax M1 API integration with secure key handling.
+- RAG system integration with caching for performance.
 
 ### Security
 
-- API keys stored in Azure Key Vault
-- CORS configured to allow only GitHub Pages domain
-- Input validation on both client and server
+- API keys stored in Azure Key Vault.
+- CORS configured to allow only GitHub Pages domain.
+- Input validation on both client and server.
 
 ### Performance
 
-- Local storage for conversation history
-- Caching for common queries
-- Optimized token usage for cost management
+- Local storage for conversation history.
+- Caching for common queries.
+- Optimized token usage for cost management.
 
 ---
 
 ### Last Updated
 
-June 28, 2025
+June 29, 2025

@@ -7,6 +7,12 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Hide debug elements */
+        .floating-debug-bar, #debug-panel, .debug-controls {
+            display: none !important;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -223,6 +229,21 @@
                     behavior: 'smooth'
                 });
             });
+        });
+    </script>
+    
+    <!-- Cortivus Chatbot Integration -->
+    <script src="js/chatbot/ui.js"></script>
+    <script src="js/chatbot/chat.js"></script>
+    <script>
+        // Initialize the chatbot once the DOM is fully loaded.
+        document.addEventListener('DOMContentLoaded', function() {
+            // The chat.js script exposes a global CortivusChat object with an init method.
+            if (window.CortivusChat && typeof window.CortivusChat.init === 'function') {
+                window.CortivusChat.init();
+            } else {
+                console.error('CortivusChat not found or is missing an init method. Check that chat.js is loaded correctly.');
+            }
         });
     </script>
 </body>

@@ -81,5 +81,42 @@
         </div>
     </footer>
 
+    <!-- Cortivus Chatbot Integration -->
+    <script src="js/chatbot-loader.js"></script>
+    <script src="js/chatbot/ui.js"></script>
+    <script src="js/chatbot/chat.js"></script>
+    <script>
+        // Direct initialization to ensure chatbot loads properly
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Direct initialization from HTML');
+            if (window.CortivusChatUI && window.CortivusChat) {
+                window.CortivusChatUI.initialize();
+                window.CortivusChat.initialize();
+                
+                // Ensure toggle button works with improved handler
+                setTimeout(function() {
+                    const toggleBtn = document.getElementById('chat-toggle-btn');
+                    if (toggleBtn) {
+                        console.log('Adding direct click handler to toggle button');
+                        // Remove any existing click handlers first
+                        toggleBtn.onclick = null;
+                        // Add new click handler with both methods for redundancy
+                        toggleBtn.onclick = function(e) {
+                            console.log('Toggle button clicked via onclick');
+                            const chatWindow = document.getElementById('chat-window');
+                            if (chatWindow) {
+                                chatWindow.classList.toggle('open');
+                                console.log('Chat window toggled:', chatWindow.classList.contains('open') ? 'open' : 'closed');
+                            } else {
+                                console.error('Chat window element not found');
+                            }
+                        };
+                    } else {
+                        console.error('Chat toggle button not found');
+                    }
+                }, 1000); // Longer timeout for more reliable DOM loading
+            }
+        });
+    </script>
 </body>
 </html>
