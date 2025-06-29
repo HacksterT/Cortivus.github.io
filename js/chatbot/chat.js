@@ -15,7 +15,7 @@
         apiEndpoint: window.location.hostname === 'localhost' 
             ? 'http://localhost:7071/api/chat'  // Local
             : 'https://cortivus-chatbot-api-a7athug0ggcybrec.eastus-01.azurewebsites.net/api/chat', // Azure
-        demoMode: true,
+        demoMode: window.location.hostname === 'localhost',
         maxHistoryItems: 50,
         typingDelay: { min: 300, max: 1500 }
     };
