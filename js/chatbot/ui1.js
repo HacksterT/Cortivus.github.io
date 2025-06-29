@@ -52,8 +52,7 @@
             demoButtons: {
                 policy: document.getElementById('demo-btn-policy'),
                 bar: document.getElementById('demo-btn-bar'),
-                sermon: document.getElementById('demo-btn-sermon'),
-                company: document.getElementById('demo-btn-company')
+                sermon: document.getElementById('demo-btn-sermon')
             }
         };
         log('Chat DOM elements have been cached.', 'debug', chatElements);
@@ -106,10 +105,6 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                         Sermon Demo
                     </button>
-                    <button id="demo-btn-company" class="demo-btn" data-demo="company" aria-label="Company Q&A">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-1.1"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                        Company Q&A
-                    </button>
                 </div>
                 <div id="chat-messages" class="chat-messages"></div>
                 <div id="chat-quick-replies" class="chat-quick-replies"></div>
@@ -145,7 +140,7 @@
             .floating-debug-bar { display: none !important; }
             .chat-toggle-btn { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background-color: #0088cc; color: white; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); transition: all 0.3s ease; z-index: 1001; font-size: 24px; }
             .chat-toggle-btn:hover { transform: scale(1.05); background-color: #34495e; }
-            .chat-window { position: fixed; bottom: 90px; right: 20px; width: 380px; max-height: 80vh; background-color: #1a1a1a; border-radius: 10px; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3); display: flex; flex-direction: column; overflow: hidden; transform-origin: bottom right; transform: scale(0); opacity: 0; transition: transform 0.3s ease, opacity 0.3s ease; z-index: 1000; visibility: hidden; }
+            .chat-window { position: fixed; bottom: 90px; right: 20px; width: 380px; max-height: 65vh; background-color: #1a1a1a; border-radius: 10px; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3); display: flex; flex-direction: column; overflow: hidden; transform-origin: bottom right; transform: scale(0); opacity: 0; transition: transform 0.3s ease, opacity 0.3s ease; z-index: 1000; visibility: hidden; }
             .chat-window.open { transform: scale(1); opacity: 1; visibility: visible; }
             .chat-header { background: linear-gradient(135deg, #0088cc, #005577); padding: 15px; display: flex; justify-content: space-between; align-items: center; border-top-left-radius: 10px; border-top-right-radius: 10px; flex-shrink: 0; }
             .chat-title { font-weight: bold; font-size: 16px; }
@@ -154,8 +149,8 @@
             .chat-close-btn:hover { opacity: 1; }
             
             /* Demo Button Bar Styles */
-            .demo-button-bar { background-color: #2a2a2a; padding: 10px 15px; display: flex; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid #333; flex-shrink: 0; }
-            .demo-btn { background-color: #333; color: #f0f0f0; border: 1px solid #555; border-radius: 15px; padding: 6px 10px; cursor: pointer; font-size: 0.85em; display: flex; align-items: center; gap: 5px; transition: all 0.2s ease; white-space: nowrap; flex: 1 1 45%; min-width: 120px; }
+            .demo-button-bar { background-color: #2a2a2a; padding: 10px 15px; display: flex; gap: 8px; border-bottom: 1px solid #333; flex-shrink: 0; overflow-x: auto; }
+            .demo-btn { background-color: #333; color: #f0f0f0; border: 1px solid #555; border-radius: 15px; padding: 6px 10px; cursor: pointer; font-size: 0.85em; display: flex; align-items: center; gap: 5px; transition: all 0.2s ease; white-space: nowrap; flex-shrink: 0; }
             .demo-btn:hover { background-color: #0088cc; border-color: #0088cc; transform: translateY(-1px); }
             .demo-btn.active { background-color: #0088cc; border-color: #0088cc; }
             .demo-btn svg { flex-shrink: 0; }
@@ -179,8 +174,7 @@
             .message-sources { font-size: 0.8em; margin-top: 5px; color: #888888; padding-left: 15px; }
             .sources-label { font-weight: bold; }
             .source-item { text-decoration: underline; cursor: pointer; }
-            .demo-indicator { font-size: 0.75em; color: #0088cc; font-weight: bold; margin-top: 5px; padding-left: 15px; opacity: 0.8; }
-            .chat-quick-replies { padding: 10px 15px 10px; display: flex; flex-wrap: wrap; gap: 10px; flex-shrink: 0; justify-content: center; }
+            .chat-quick-replies { padding: 0 15px 10px; display: flex; flex-wrap: wrap; gap: 10px; flex-shrink: 0; }
             .quick-reply-btn { background-color: #333; color: #f0f0f0; border: 1px solid #555; border-radius: 20px; padding: 8px 15px; cursor: pointer; font-size: 0.9em; transition: background-color 0.2s, border-color 0.2s; }
             .quick-reply-btn:hover { background-color: #0088cc; border-color: #0088cc; }
             .typing-indicator { display: none; padding: 10px 15px; background-color: #333333; border-radius: 18px; margin: 0 15px 15px; width: fit-content; align-items: center; }
@@ -191,7 +185,7 @@
             .typing-indicator span:nth-child(3) { animation-delay: 0.4s; margin-right: 0; }
             @keyframes typing-dot { 0%, 80%, 100% { transform: scale(0.7); } 40% { transform: scale(1); } }
             .chat-input-container { display: flex; padding: 15px; background-color: #1a1a1a; border-top: 1px solid #333333; flex-shrink: 0; }
-            .chat-input { flex: 1; padding: 10px 15px; border: 1px solid #333333; border-radius: 20px; background-color: #2a2a2a; color: #f0f0f0; resize: none; max-height: 120px; min-height: 60px; overflow-y: auto; }
+            .chat-input { flex: 1; padding: 10px 15px; border: 1px solid #333333; border-radius: 20px; background-color: #2a2a2a; color: #f0f0f0; resize: none; max-height: 100px; overflow-y: auto; }
             .chat-input:focus { outline: none; border-color: #0088cc; }
             .chat-send-btn { width: 40px; height: 40px; border-radius: 50%; background-color: #0088cc; color: white; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-left: 10px; transition: background-color 0.2s; flex-shrink: 0; }
             .chat-send-btn:hover { background-color: #006699; }

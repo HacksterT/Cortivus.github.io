@@ -10,6 +10,12 @@
 - ✅ **Enhanced User Guidance:** Implemented a new welcome message and placeholder responses for all quick-reply actions to better guide the user.
 - ✅ **Branding Update:** Updated the chatbot title to "The Cortivus Brain" and aligned the welcome message for consistent branding.
 - ✅ **Removed Dead Code:** Deleted the `debug.js` script and all related logic for a cleaner, more efficient codebase.
+- ✅ **Demo button layout:** 2x2 grid, no horizontal scrolling  
+- ✅ **Company Q&A demo:** Full functionality with real website content  
+- ✅ **Demo switching:** Confirmation dialogs and clean transitions  
+- ✅ **Mode indicators:** Users always know which demo is active  
+- ✅ **UI improvements:** Better spacing, centered buttons, taller chat window  
+- ✅ **Lead generation flow:** All demos point to contact form  
 
 ### Project Setup and Planning
 
@@ -33,6 +39,10 @@
 - ✅ Added configuration files
 
 ## Next Steps
+
+- Frontend complete - All 4 modes working (Policy, Bar, Sermon, Company Q&A)  
+- Demo content ready - Realistic responses showcasing capabilities  
+- Ready for backend - When you're ready to connect Azure Functions + MiniMax  
 
 ### Testing and Optimization
 

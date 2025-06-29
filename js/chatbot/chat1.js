@@ -105,21 +105,6 @@
     function handleDemoButtonClick(demoType) {
         log(`Demo button clicked: ${demoType}`, 'event');
         
-        // Check if switching from another demo
-        if (state.activeDemo && state.activeDemo !== demoType) {
-            const currentDemoName = getDemoDisplayName(state.activeDemo);
-            const newDemoName = getDemoDisplayName(demoType);
-            
-            const confirmMessage = `You're currently in ${currentDemoName}. Switch to ${newDemoName}? Your previous conversation will be cleared.`;
-            
-            if (!confirm(confirmMessage)) {
-                return; // User cancelled the switch
-            }
-            
-            // Clear chat history when switching demos
-            clearChatMessages();
-        }
-        
         // Update active demo state
         setActiveDemo(demoType);
         
@@ -127,37 +112,17 @@
         showQuickReplies([]);
         
         // Add system message about demo activation
-        const demoName = getDemoDisplayName(demoType);
+        let demoName;
+        switch(demoType) {
+            case 'policy': demoName = 'Policy Retrieval Demo'; break;
+            case 'bar': demoName = 'Bar Recommendation Demo'; break;
+            case 'sermon': demoName = 'Sermon Preparation Demo'; break;
+        }
+        
         addSystemMessage(`${demoName} activated. ${getDemoInstructions(demoType)}`);
         
         // Show demo-specific quick start options
         showDemoQuickReplies(demoType);
-    }
-
-    /**
-     * Gets the display name for a demo type
-     * @param {string} demoType - The demo type
-     * @returns {string} Display name
-     */
-    function getDemoDisplayName(demoType) {
-        const names = {
-            'policy': 'Policy Demo',
-            'bar': 'Bar Demo', 
-            'sermon': 'Sermon Demo',
-            'company': 'Company Q&A'
-        };
-        return names[demoType] || demoType;
-    }
-
-    /**
-     * Clears all chat messages except system messages
-     */
-    function clearChatMessages() {
-        if (dom.messageContainer) {
-            dom.messageContainer.innerHTML = '';
-        }
-        state.history = [];
-        log('Chat messages cleared for demo switch', 'info');
     }
 
     /**
@@ -180,11 +145,11 @@
             dom.demoButtons[demoType].classList.add('active');
         }
         
+        // Update chat input placeholder
         const placeholders = {
             'policy': 'Ask about leave policies, benefits, or HR procedures...',
             'bar': 'Tell me about your taste preferences...',
-            'sermon': 'What topic or scripture would you like to explore?',
-            'company': 'Ask about our services, technology, or how we can help...'
+            'sermon': 'What topic or scripture would you like to explore?'
         };
         
         if (dom.inputField && placeholders[demoType]) {
@@ -203,8 +168,7 @@
         const instructions = {
             'policy': 'Ask me about employee policies, leave programs, benefits, or HR procedures. I can search through policy documents and provide relevant information.',
             'bar': 'Tell me about your taste preferences and I\'ll recommend cocktails perfectly suited to your palate. At the end, I\'ll send the full recipes to your email.',
-            'sermon': 'Share a topic, scripture reference, or theme you\'d like to explore. I\'ll help create a comprehensive sermon outline and email it to you.',
-            'company': 'Ask me about Cortivus services, our technology capabilities, pricing, or how we can help your organization. I\'m here to answer questions about our company and solutions.'
+            'sermon': 'Share a topic, scripture reference, or theme you\'d like to explore. I\'ll help create a comprehensive sermon outline and email it to you.'
         };
         return instructions[demoType] || 'Demo instructions not available.';
     }
@@ -232,12 +196,6 @@
                 { label: 'Faith & Trust', action: 'sermon_faith' },
                 { label: 'Service & Community', action: 'sermon_service' },
                 { label: 'Hope & Renewal', action: 'sermon_hope' }
-            ],
-            'company': [
-                { label: 'Our Services', action: 'company_services' },
-                { label: 'Technology Stack', action: 'company_tech' },
-                { label: 'Pricing Info', action: 'company_pricing' },
-                { label: 'Get Started', action: 'company_contact' }
             ]
         };
         
@@ -266,6 +224,7 @@
                 log('New chat session started.', 'info');
                 addSystemMessage(getWelcomeMessage());
                 showQuickReplies([
+                    { label: 'Company Info', action: 'company_info' },
                     { label: 'Contact Us', action: 'contact_info' }
                 ]);
             }
@@ -315,18 +274,7 @@
     // --- Message & UI Update Functions ---
 
     function addUserMessage(text) { addMessageToChat({ type: 'user', text }); }
-    function addBotMessage(text, sources = []) { 
-        const messageObj = { type: 'bot', text, sources };
-        
-        // Add demo indicator for bot messages
-        if (state.activeDemo) {
-            messageObj.demoMode = getDemoDisplayName(state.activeDemo);
-        } else {
-            messageObj.demoMode = 'Company Q&A';
-        }
-        
-        addMessageToChat(messageObj); 
-    }
+    function addBotMessage(text, sources = []) { addMessageToChat({ type: 'bot', text, sources }); }
     function addSystemMessage(text) { addMessageToChat({ type: 'system', text }); }
 
     function addMessageToChat(messageObj) {
@@ -350,14 +298,6 @@
         textDiv.className = 'message-text';
         textDiv.innerHTML = formatMessageText(messageObj.text);
         messageDiv.appendChild(textDiv);
-        
-        // Add demo mode indicator for bot messages
-        if (messageObj.type === 'bot' && messageObj.demoMode) {
-            const demoIndicator = document.createElement('div');
-            demoIndicator.className = 'demo-indicator';
-            demoIndicator.textContent = messageObj.demoMode;
-            messageDiv.appendChild(demoIndicator);
-        }
         
         if (messageObj.sources && messageObj.sources.length > 0) {
             const sourcesDiv = document.createElement('div');
@@ -427,6 +367,9 @@
             } else {
                 // Handle general quick replies
                 switch (reply.action) {
+                    case 'company_info':
+                        response = getCompanyInfoResponse();
+                        break;
                     case 'contact_info':
                         response = getContactInfoResponse();
                         break;
@@ -438,12 +381,6 @@
             hideTypingIndicator();
             addBotMessage(response.text, response.sources);
             state.isLoading = false;
-            // Re-show company quick replies if in company demo
-            if (state.activeDemo === 'company') {
-                setTimeout(() => {
-                    showDemoQuickReplies('company');
-                }, 750);
-            }
         }, delay);
     }
 
@@ -461,8 +398,6 @@
                 return handleBarQuickReply(reply);
             case 'sermon':
                 return handleSermonQuickReply(reply);
-            case 'company':
-                return handleCompanyQuickReply(reply);
             default:
                 return { text: "Demo mode not recognized." };
         }
@@ -537,29 +472,6 @@
         return responses[reply.action] || { text: "Share your sermon topic and I'll help develop a comprehensive outline!" };
     }
 
-    function handleCompanyQuickReply(reply) {
-        const responses = {
-            'company_services': {
-                text: "**What We Offer:**\n\n• **AI Automation** - Streamline repetitive workflows using powerful automation tools integrated with your existing processes\n\n• **RAG Knowledge Systems** - Connect your documents, data, or knowledge base to language models with custom Retrieval-Augmented Generation pipelines\n\n• **Data-Powered Insights** - Build dashboards, models, or reports that turn disconnected data into meaningful insights that drive decision-making\n\nReady to explore how these solutions can transform your organization?",
-                sources: ["Services Overview"]
-            },
-            'company_tech': {
-                text: "**Our Technology Stack:**\n\n• **AI/ML:** Python, Azure OpenAI, Custom LLMs\n• **Backend:** Azure Functions, FastAPI, RESTful APIs\n• **Frontend:** Modern JavaScript, React, Responsive Design\n• **Data:** RAG pipelines, Vector databases, Analytics\n• **Cloud:** Microsoft Azure, Secure & Scalable\n\nWe use cutting-edge, enterprise-grade technologies to build reliable solutions.",
-                sources: ["Technical Capabilities"]
-            },
-            'company_pricing': {
-                text: "**Flexible Pricing Options:**\n\nWe believe in transparent, value-based pricing tailored to your needs:\n\n• **Project-Based** - Fixed scope, clear deliverables\n• **Retainer** - Ongoing support and development\n• **Custom Solutions** - Enterprise pricing for large implementations\n\nEvery project starts with a free consultation to understand your specific requirements and provide accurate pricing.",
-                sources: ["Pricing Information"]
-            },
-            'company_contact': {
-                text: "**Ready to Get Started?**\n\nWe'd love to discuss how AI can transform your organization!\n\n**Next Steps:**\n1. Complete our contact form below\n2. Schedule a free 30-minute consultation\n3. Receive a custom proposal for your needs\n\nScroll down to the 'Let's Build Something Amazing' section to begin!",
-                sources: ["Contact Information"]
-            }
-        };
-        
-        return responses[reply.action] || { text: "Service information not found." };
-    }
-
     // --- API & Demo Logic ---
 
     async function callChatAPI(message) {
@@ -607,9 +519,6 @@
                     break;
                 case 'sermon':
                     demoResponse = getDemoSermonResponse(message);
-                    break;
-                case 'company':
-                    demoResponse = getCompanyQAResponse(message);
                     break;
                 default:
                     demoResponse = { text: "Demo mode not recognized." };
@@ -727,6 +636,13 @@
                 sources: ["Company Information"]
             };
         }
+    }
+
+    function getCompanyInfoResponse() {
+        return {
+            text: "Cortivus is a visionary company dedicated to leveraging AI to enhance pastoral and administrative tasks for faith-based organizations. Our tools help with everything from sermon preparation to policy management, allowing leaders to focus more on their community and mission.",
+            sources: ["About Us Page"]
+        };
     }
 
     function getContactInfoResponse() {
