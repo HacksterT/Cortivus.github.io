@@ -4,23 +4,41 @@ import json
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
+def get_cors_headers():
+    """Return standard CORS headers"""
+    return {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        "Access-Control-Max-Age": "3600"
+    }
+
 @app.route(route="chat", methods=["GET", "POST", "OPTIONS"])
 def chat_endpoint(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('Chat endpoint received a request.')
+    logging.info(f'Chat endpoint received a {req.method} request.')
     
-    # Handle CORS preflight
+    # Handle CORS preflight - this is critical
     if req.method == "OPTIONS":
+        logging.info("Handling CORS preflight request")
         return func.HttpResponse(
+            "",
             status_code=200,
-            headers={
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-                "Access-Control-Allow-Headers": "Content-Type"
-            }
+            headers=get_cors_headers()
         )
     
     try:
-        # Parse the incoming request
+        # Handle GET request (for testing)
+        if req.method == "GET":
+            return func.HttpResponse(
+                json.dumps({"message": "Cortivus ChatBot API is running!", "status": "ok"}),
+                status_code=200,
+                headers={
+                    "Content-Type": "application/json",
+                    **get_cors_headers()
+                }
+            )
+        
+        # Handle POST request
         req_body = req.get_json()
         if not req_body:
             raise ValueError("No JSON body provided")
@@ -46,18 +64,18 @@ def chat_endpoint(req: func.HttpRequest) -> func.HttpResponse:
             status_code=200,
             headers={
                 "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*"
+                **get_cors_headers()
             }
         )
         
     except Exception as e:
         logging.error(f"Error processing request: {str(e)}")
         return func.HttpResponse(
-            json.dumps({"error": "Sorry, I encountered an error processing your request."}),
+            json.dumps({"error": "Sorry, I encountered an error processing your request.", "details": str(e)}),
             status_code=500,
             headers={
                 "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*"
+                **get_cors_headers()
             }
         )
 
