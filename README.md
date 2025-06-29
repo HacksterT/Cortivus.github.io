@@ -6,6 +6,8 @@ This repository contains the source code for the Cortivus company website, a sta
 
 Cortivus is a technology company specializing in AI solutions, custom RAG (Retrieval-Augmented Generation) systems, and data analytics. This website serves as the company's online presence, showcasing services and providing a contact form for potential clients. The site features a modern, responsive design with interactive elements and will soon include an AI chatbot demonstration.
 
+Comprehensive project paperwork is included in the Cortivus_Complete_Project Jupyter notebook in the repository.
+
 ## Features
 
 - Responsive design that works on mobile, tablet, and desktop devices
